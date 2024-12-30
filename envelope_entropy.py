@@ -4,7 +4,6 @@ from scipy.optimize import differential_evolution
 from vmdpy import VMD
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
-from antropy import sample_entropy, spectral_entropy, app_entropy # 使用antropy库计算样本熵
 from scipy.linalg import svd
 from scipy.signal import hilbert
 
@@ -23,10 +22,6 @@ def envelope_entropy(imfs):
 
     return np.mean(entropy_values)
 
-
-
-
-# 组合适应度函数
 def combined_fitness(alpha, k, weights=[1]):
     alpha = int(alpha)
     k = int(k)

@@ -42,7 +42,6 @@ train_size = int(0.7 * len(data))
 data_train = data[:train_size]
 data_test = data[train_size:]
 
-# 数据标准化处理
 scaler = MinMaxScaler()
 train_norm = scaler.fit_transform(data_train.reshape(-1, 1)).flatten()
 test_norm = scaler.transform(data_test.reshape(-1, 1)).flatten()
@@ -149,7 +148,6 @@ class CNN_GRU_Attention(nn.Module):
         out = self.fc(out)
         return out
 
-# 设置设备
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 input_size = 1
@@ -232,7 +230,6 @@ def plot_IMFs(IMFs, title='IMF Components'):
 plot_IMFs(train_IMFs, title="Train Data IMFs")
 plot_IMFs(test_IMFs, title="Test Data IMFs")
 
-# 评估函数
 def evaluate_model(true_values, predicted_values, label='Data'):
     plt.figure(figsize=(10, 6))
     plt.plot(true_values, label="Original value")
